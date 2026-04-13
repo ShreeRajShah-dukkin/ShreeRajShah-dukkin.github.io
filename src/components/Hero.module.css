@@ -1,0 +1,229 @@
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px clamp(24px, 6vw, 96px) 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ruled background lines — notebook-like */
+.ruledLines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 1.8s ease 0.4s forwards;
+}
+
+.ruledLine {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+/* main content */
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* eyebrow */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: var(--text-2);
+  margin-bottom: 40px;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.8;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* name */
+.nameBlock {
+  margin-bottom: 36px;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-size: clamp(58px, 10vw, 104px);
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.name em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+/* cycling role text */
+.roleWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  height: 24px;
+}
+
+.role {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.02em;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.roleFading {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.cursor {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--gold);
+  opacity: 0.7;
+  animation: blink 1.1s step-end infinite;
+}
+
+/* intro text */
+.intro {
+  font-size: clamp(15px, 1.7vw, 17px);
+  color: var(--text-2);
+  line-height: 1.85;
+  max-width: 520px;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+/* pull quote */
+.aside {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-style: normal;
+  color: var(--text-3);
+  border-left: 2px solid var(--gold-line);
+  padding-left: 18px;
+  margin-bottom: 48px;
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* buttons */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnGhost {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  padding: 13px 26px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+.btnPrimary {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+  font-weight: 500;
+}
+
+.btnPrimary:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--text-3);
+  border-color: var(--border);
+}
+
+.btnGhost:hover {
+  border-color: var(--border-hover);
+  color: var(--text-2);
+}
+
+/* scroll nudge */
+.scrollNudge {
+  position: absolute;
+  bottom: 36px;
+  right: clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.8s forwards;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  opacity: 0.4;
+  transform-origin: top;
+  animation: drip 2.4s var(--ease-out) 2s infinite;
+}
+
+.scrollLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: var(--text-2);
+  writing-mode: vertical-rl;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .scrollNudge { display: none; }
+}

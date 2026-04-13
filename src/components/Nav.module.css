@@ -1,0 +1,86 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px clamp(24px, 6vw, 96px);
+  transition: background 0.4s ease, border-color 0.4s ease, padding 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+  background: rgba(12, 11, 9, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: var(--border);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logoMark {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: 0.04em;
+}
+
+.logoDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--text-3);
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.link:hover {
+  color: var(--text-2);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .links { gap: 20px; }
+}

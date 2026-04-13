@@ -1,0 +1,230 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out),
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* card header */
+.cardHead {
+  padding: clamp(32px, 4vw, 48px);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* left accent bar */
+.cardHead::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: var(--gold);
+  opacity: 0.18;
+  transition: opacity 0.2s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.card:hover .cardHead::before {
+  opacity: 0.45;
+  top: 0;
+  bottom: 0;
+}
+
+/* meta row */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.12em;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--text-2);
+  opacity: 0.9;
+  padding: 5px 10px;
+  border: 1px solid rgba(124, 159, 200, 0.22);
+}
+
+/* title */
+.title {
+  font-family: var(--font-sans);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+/* problem text — visible by default */
+.problem {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+/* toggle button */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text-3);
+  transition: color 0.2s ease;
+}
+
+.toggle:hover {
+  color: var(--text-1);
+}
+
+.repoRow {
+  padding: 16px clamp(28px, 4vw, 44px);
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.repoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  color: var(--text-1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.repoButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-hover);
+}
+
+.toggleIcon {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.5;
+  transition: transform 0.3s var(--ease-out), opacity 0.2s;
+  display: inline-block;
+}
+
+.toggleIcon.open {
+  transform: rotate(45deg);
+  opacity: 0.8;
+}
+
+.toggleLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+}
+
+/* expandable body */
+.body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.55s var(--ease-out);
+}
+
+.body.bodyOpen {
+  max-height: 900px;
+}
+
+.bodyInner {
+  padding: 0 clamp(28px, 4vw, 44px) clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 32px;
+}
+
+/* field rows */
+.field {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.fieldLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--text-3);
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+.fieldValue {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.fieldValue.impact {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+@media (max-width: 520px) {
+  .field {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

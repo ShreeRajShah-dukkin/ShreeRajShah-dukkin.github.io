@@ -1,0 +1,122 @@
+.section {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 6vw, 96px);
+  background: var(--bg-raised);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: var(--text-2);
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.heading em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2px;
+}
+
+/* group card */
+.group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 32px 28px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out),
+    border-color 0.2s ease;
+}
+
+.group.groupVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.group:hover {
+  border-color: var(--border-hover);
+}
+
+.groupHead {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.groupTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.groupDesc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-3);
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* list */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 300;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.35;
+  flex-shrink: 0;
+}
