@@ -1,4 +1,7 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -24,6 +27,7 @@
 
 /* card header */
 .cardHead {
+  flex: 1 1 auto;
   padding: clamp(32px, 4vw, 48px);
   cursor: pointer;
   position: relative;
