@@ -72,7 +72,7 @@ export default function Hero() {
             see my work
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/ShreeRajShah-dukkin"
             target="_blank"
             rel="noreferrer"
             className={styles.btnGhost}
