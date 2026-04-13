@@ -1,9 +1,9 @@
 import styles from "./Footer.module.css";
 
 const socials = [
-  { label: "github",   href: "https://github.com" },
-  { label: "linkedin", href: "https://linkedin.com" },
-  { label: "email",    href: "mailto:hello@shreeraj.dev" },
+  { label: "github",   href: "https://github.com/ShreeRajShah-dukkin" },
+  { label: "linkedin", href: "https://www.linkedin.com/in/shreeraj12/" },
+  { label: "email",    href: "mailto:Shreerajshah4@gmail.com" },
 ];
 
 export default function Footer() {
@@ -18,8 +18,8 @@ export default function Footer() {
 
         <div className={styles.right}>
           <p className={styles.contactLabel}>reach me at</p>
-          <a href="mailto:hello@shreeraj.dev" className={styles.email}>
-            hello@shreeraj.dev
+          <a href="mailto:Shreerajshah4@gmail.com" className={styles.email}>
+            shreerajshah4@gmail.com
           </a>
           <div className={styles.socials}>
             {socials.map(({ label, href }) => (
